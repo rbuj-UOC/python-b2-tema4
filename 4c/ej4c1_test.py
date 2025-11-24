@@ -22,24 +22,22 @@ Ejemplo:
 import pytest
 from ej4c1 import calculate_rectangle_area
 
-def test_calculate_rectangle_area(): 
-    # Prueba con valores enteros positivos para ancho y alto.   
-    # Write here your code
-
-    # Change the following line
-    assert False
+def test_calculate_rectangle_area():
+    width = 3
+    height = 7
+    expected_area = 21
+    assert calculate_rectangle_area(width, height) == expected_area
     
 def test_value_error_calculate_rectangle_area():
-    # Prueba con ancho/alto negativo.
-    # Write here your code
+    width = -2
+    height = 8
     
-    # Change the following line
-    assert False
+    with pytest.raises(ValueError):
+        calculate_rectangle_area(width, height)
     
 
 def test_type_error_calculate_rectangle_area():
-    # Prueba con ancho/alto no numérico.
-    # Write here your code
-    
-    # Change the following line
-    assert False
+    width = 'a'
+    height = 5
+    with pytest.raises(TypeError):
+        calculate_rectangle_area(width, height)
